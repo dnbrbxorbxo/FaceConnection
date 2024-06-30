@@ -1,131 +1,430 @@
 <style>
 
-    body{
-        margin: 0;
-        padding: 0;
-    }
-
-.laptop {
-  transform: scale(0.8);
+    body {
+  background: url('http://cdn.osxdaily.com/wp-content/uploads/2018/06/macos-mojave-default-wallpaper-light.jpg') 50% no-repeat fixed;
+  background-size: cover;
+  height: 100vh;
 }
-.screen {
+
+.window {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 4px 12px rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 4px 12px rgba(0,0,0,.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+  width: 800px;
+  margin:auto;
+  margin-top:20px;
+  overflow:hidden;
+  border:1px solid #C1C2C2;
+}
+
+.inside {
+  background:#fff;
+  overflow:hidden;
+  padding:10px;
+}
+.inside .blok {
+  width:100%;float:left;margin-right:1.5%;
+  height:auto;
+  background:#efefef;
+}
+.top {
+  padding:7px 0;
+  position:relative;
+  background: #f1f1f1;
+  background: -moz-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -webkit-gradient(left top, left bottom,color-stop(3%, #E9E9E9), color-stop(100%, #d8d8d8));
+  background: -webkit-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -o-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: -ms-linear-gradient(top, #E9E9E9 3%, #d8d8d8 100%);
+  background: linear-gradient(to bottom, #E9E9E9 3%, #d8d8d8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#d8d8d8', GradientType=0 );
+
+  -webkit-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+  -moz-box-shadow:    inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+  box-shadow:         inset 0px 1px 1px 0px rgba(255, 255, 255, 0.76);
+
+  overflow:hidden;
+  border-bottom:2px solid #BDBCC1;
+}
+
+.top > div {
+  float:left;
+}
+
+
+.panel {
+  padding-left:9px;
+  padding-top:2px;
+}
+
+.panel > span {
+  display:inline-block;
+  float:left;
+  width:40px;
+    text-align: center;
+    color: #fff;
+  height:40px;
+    vertical-align: middle;
+  margin-right:7px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   border-radius: 20px;
-  box-shadow: inset 0 0 0 2px #c8cacb, inset 0 0 0 10px #000;
-  height: 318px;
-  width: 518px;
-  margin: 0 auto;
-  padding: 9px 9px 23px 9px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(
-    15deg,
-    #3f51b1 0%,
-    #5a55ae 13%,
-    #7b5fac 25%,
-    #8f6aae 38%,
-    #a86aa4 50%,
-    #cc6b8e 62%,
-    #f18271 75%,
-    #f3a469 87%,
-    #f7c978 100%
-  );
-  transform-style: preserve-3d;
-  transform: perspective(1900px) rotateX(-88.5deg);
-  transform-origin: 50% 100%;
-  animation: open 4s infinite alternate;
-}
-@keyframes open {
-  0% {
-    transform: perspective(1900px) rotateX(-88.5deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateX(0deg);
-  }
-}
-.screen::before {
-  content: "";
-  width: 518px;
-  height: 12px;
-  position: absolute;
-  background: linear-gradient(#979899, transparent);
-  top: -3px;
-  transform: rotateX(90deg);
-  border-radius: 5px 5px;
+  cursor:pointer;
+
 }
 
-.text {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #fff;
-  letter-spacing: 1px;
-  text-shadow: 0 0 5px #fff;
+.panel span.first {
+  background:#FF5F4F;
 }
-.header {
-  width: 100px;
-  height: 12px;
-  position: absolute;
-  background-color: #000;
-  top: 10px;
-  left: 50%;
-  transform: translate(-50%, -0%);
-  border-radius: 0 0 6px 6px;
+
+.panel span.second {
+  background:#F9C206;
 }
-.screen::after {
-  background: linear-gradient(to bottom, #272727, #0d0d0d);
-  border-radius: 0 0 20px 20px;
-  bottom: 2px;
-  content: "";
-  height: 24px;
-  left: 2px;
-  position: absolute;
-  width: 514px;
-}
-.keyboard {
-  background: radial-gradient(circle at center, #e2e3e4 85%, #a9abac 100%);
-  border: solid #a0a3a7;
-  border-radius: 2px 2px 12px 12px;
-  border-width: 1px 2px 0 2px;
-  box-shadow: inset 0 -2px 8px 0 #6c7074;
-  height: 24px;
-  margin-top: -10px;
-  position: relative;
-  width: 620px;
-  z-index: 9;
-}
-.keyboard::after {
-  background: #e2e3e4;
-  border-radius: 0 0 10px 10px;
-  box-shadow: inset 0 0 4px 2px #babdbf;
-  content: "";
-  height: 10px;
-  left: 50%;
-  margin-left: -60px;
-  position: absolute;
-  top: 0;
-  width: 120px;
-}
-.keyboard::before {
-  background: 0 0;
-  border-radius: 0 0 3px 3px;
-  bottom: -2px;
-  box-shadow: -270px 0 #272727, 250px 0 #272727;
-  content: "";
-  height: 2px;
-  left: 50%;
-  margin-left: -10px;
-  position: absolute;
-  width: 40px;
+
+.panel span.third {
+  background:#19CC32;
 }
 
 
+.nav {
+  overflow:hidden;
+}
+
+.nav > span {
+  display:inline-block;
+  float:left;
+  background:#FBFBFB;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  height:23px;
+  padding:0 8px;
+  cursor:pointer;
+  color:#B4B4B4;
+  border-bottom:1px solid #CECECE;
+}
+.nav > span:hover {
+  background:#f2f2f2;
+  color:#666;
+}
+.nav > span i.fa {
+    font-size:23px;
+}
+
+.nav span.active {
+  color:#707070;
+}
+
+.nav span.prev {
+  margin-right:1px;
+  margin-left:7px;
+}
+
+.nav span.next {
+  margin-right:7px;
+}
+
+.nav span.set i {
+  font-size:14px;
+  position:relative;
+  top:3px;
+}
+
+.nav span.address {
+  width:400px;
+    height: 40px;
+  margin-left:120px;
+  display:inline-block;
+  background:#fff;
+  line-height:30px;
+  padding:0;
+  text-align:center;
+    vertical-align: center;
+  position:relative;
+}
+.nav span.address > input {
+  font-size:20px;
+  color:#505050;
+
+  border:none;
+  background:none;
+  text-align:center;
+  position:relative;
+  width:300px;
+}
+
+.nav span.address > input:focus {
+  outline:none;
+}
+
+.nav span.address > input.class {
+  text-align:left;
+}
+
+
+
+.nav span.address > i.fa {
+  position:absolute;
+  right:5px;
+  top:7px;
+  font-size:11px;
+  color:#010101;
+}
+
+.nav.right {
+  float:right !important;
+  margin-right:35px;
+}
+
+.nav span.share {
+  margin-right:7px;
+}
+.nav span.share > i.fa {
+  font-size:11px;
+  position:relative;
+  top:2px;
+}
+
+.nav span.tabs {
+  position:relative;
+  width:26px;
+  padding:0;
+}
+
+.nav span.tabs span {
+  height:7px;
+  width:7px;
+  border:1px solid #B4B4B4;
+  display:inline-block;
+  position:absolute;
+  background:#FBFBFB;
+}
+
+.nav span.tabs span.front {
+  top:8px;
+  left:6px;
+  z-index:6;
+}
+
+.nav span.tabs span.behind {
+  top:6px;
+  left:8px;
+  z-index:5;
+}
+
+.nav span.tabs:hover span {
+  border:1px solid #666;
+}
+
+span.new {
+  cursor:pointer;
+  position:absolute;
+  right:0;
+  bottom:0;
+  background:#CACACA;
+  width:23px;
+  height:23px;
+  text-align:center;
+  line-height:23px;
+  border-top:1px solid #C1C2C2;
+  border-left:1px solid #C1C2C2;
+}
+
+span.new:hover {
+-webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+-moz-box-shadow:    inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+box-shadow:         inset 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+span.new .plus {
+  position:absolute;
+  background:#b0b0b0;
+  display:inline-block;
+}
+
+span.new .plus.x {
+  height:1px;
+  width:14px;
+  top:12px;
+  right:0;
+  left:0;
+  margin:auto;
+}
+
+span.new .plus.y {
+  height:14px;
+  width:1px;
+  bottom:0;
+  top:0;
+  margin:auto;
+
+}
+        #loader, #overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #overlay {
+            display: none;
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 10000px;
+            height: 10000px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+        #upload-form {
+            display: none;
+        }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<div class="laptop">
-  <div class="screen">
-    <div class="header"></div>
-    <div class="text">Hello MackBook</div>
+<script>
+
+        $( ".window" ).draggable({
+            cancel: ".inside,input,textarea"
+          });
+
+
+        $("input.address").focus(function(){
+          $(".fa-refresh").hide(500);
+        this.select();
+        }).focusout(function(){
+          $(".fa-refresh").show(500);
+        });
+
+        function hideLoader() {
+            document.getElementById('loader').classList.add('hidden');
+        }
+
+        function closeOverlay() {
+            document.getElementById('overlay').classList.add('hidden');
+        }
+
+</script>
+
+<body>
+
+<div id="overlay"></div>
+<div id="loader"></div>
+
+<div class="window">
+  <div class="top">
+    <div class="panel">
+      <span class="first">
+          <p style="margin-top:10px; ">닫기</p>
+      </span>
+      <span class="second retrain-btn">
+          <p style="margin-top:10px; ">학습</p>
+      </span>
+      <span class="third upload-button">
+          <p style="margin-top:10px; ">사진</p>
+      </span>
+    </div>
+    <div class="nav">
+      <span class="address">
+        <input type="text" value="FaceConnection" class="address" editable="true" style=" margin-top: 8px;">        <i class="fa fa-refresh"></i>
+      </span>
+    </div>
   </div>
-  <div class="keyboard"></div>
+
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Upload an image</label>
+            <input type="file" class="form-control" id="file" name="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  <div class="inside">
+    <div id="result"></div>
+    <script>
+        $(document).ready(function () {
+
+            $('#loader').hide();
+            $('#overlay').hide();
+
+            $('.upload-button').click(function () {
+                $('#file').click();
+            });
+
+             $('.retrain-btn').click(function() {
+                $('#loader').show();
+                $('#overlay').show();
+                $.ajax({
+                    url: '/retrain',
+                    type: 'POST',
+                    success: function(data) {
+                        $('#loader').hide();
+                        $('#overlay').hide();
+                        alert(data.message);
+                    }
+                });
+            });
+
+            $('#file').change(function() {
+                $('#loader').show();
+                $('#overlay').show();
+                var formData = new FormData();
+                formData.append('file', $('#file')[0].files[0]);
+
+                $.ajax({
+                    url: '/upload',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+
+                        $('#loader').hide();
+                        $('#overlay').hide();
+
+                        if (data.result && !isNaN(data.prob_original) && !isNaN(data.prob_enhanced)) {
+                            $('#result-text').text('결과: ' + data.result);
+                            $('#FaceConnection_ID').attr('src', data.file_path);
+                        } else {
+                            $('#result-text').text('이미지 군집화가 불가능합니다.');
+                            $('#FaceConnection_ID').attr('src', '');
+                        }
+                    }
+                });
+            });
+        });
+        function closeOverlay() {
+            $('#loader').hide();
+        }
+    </script>
+
+    <div class="blok">
+        <div id="result-container">
+            <p id="result-text"></p>
+        </div>
+        <img src="{{ url_for('static', filename='증명사진.jpg') }}" id ="FaceConnection_ID" alt="증명사진" style="width: 100%">
+    </div>
+  </div>
+
 </div>
+</body>
